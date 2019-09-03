@@ -1,11 +1,14 @@
 package scraper
-object Main extends App {
+
+import org.apache.logging.log4j.scala.Logging
+
+object Main extends App with Logging {
 
   override def main(args: Array[String]): Unit = {
-    if (args.length != 1 || args(0).toLong <= 0) throw new IllegalArgumentException("Parameter n is required. " +
-      "This is only one parameter of the program and should be > 0.")
+    if (args.length != 1 || args(0).toLong <= 0)
+      throw new IllegalArgumentException("Non-negative parameter n is required.")
     val n: Long = args(0).toLong
-    println("n=" + n)
+    logger.info("Requested number: " + n)
 
     Computation.run(n)
   }

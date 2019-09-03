@@ -11,6 +11,10 @@ libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % "1.8.3",
   "org.json4s" %% "json4s-native" % "3.6.0",
   "org.json4s" %% "json4s-jackson" % "3.6.0",
-  "com.typesafe" % "config" % "1.2.1"
+  "com.typesafe" % "config" % "1.2.1",
+  "org.apache.logging.log4j" % "log4j-api-scala_2.12" % "11.0",
+  "org.apache.logging.log4j" % "log4j-core" % "2.12.1",
+  "org.apache.logging.log4j" % "log4j-api" % "2.12.1",
+  "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.12.1"
 )
 resolvers += "Java.net Maven2 Repository" at "http://download.java.net/maven/2/"

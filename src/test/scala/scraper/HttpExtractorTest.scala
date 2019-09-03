@@ -11,12 +11,24 @@ class HttpExtractorTest extends FunSuite {
   val pointsFromHtml: Int = 8426
   val idFromHtml: Long = 441201.toLong
   val contentFromHtml: String =
-    "<Moniś> słowo \"wegetarianin\" pochodzi z jednego z narzeczy indiańskich i oznacza \"za głupi, by polować\""
+    """<Moniś> słowo "wegetarianin" pochodzi z jednego z narzeczy indiańskich i oznacza "za głupi, by polować""""
 
   test("method should return json") {
     val values: List[Registration] = Registration(1l, 65l, "a") :: Registration(2l, -1l, "b") :: Nil
     val actual: String = toJsonValues(values)
-    val expected: String = """{"bash":[{"id":1,"points":65,"content":"a"},{"id":2,"points":-1,"content":"b"}]}"""
+    val expected: String =
+      """{
+        |  "bash" : [ {
+        |    "id" : 1,
+        |    "points" : 65,
+        |    "content" : "a"
+        |  }, {
+        |    "id" : 2,
+        |    "points" : -1,
+        |    "content" : "b"
+        |  } ]
+        |}""".stripMargin
+
     assert(actual == expected)
   }
 

@@ -27,7 +27,7 @@ object HtmlExtractor {
         ("points" -> r.points) ~
         ("content" -> r.content)
     }
-    compact(render(json))
+    pretty(json)
   }
 
   def extractFields(source: String): Registration = {

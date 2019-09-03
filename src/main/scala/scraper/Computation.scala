@@ -2,14 +2,14 @@ package scraper
 
 import dispatch.Defaults._
 import dispatch._
+import scraper.HtmlExtractor.{extractFields, saveValuesToFile, toJsonValues}
+import scraper.HttpRequest._
+import scraper.UrlExtractor.getNLatestUrls
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
-import HttpRequest._
-import scraper.HtmlExtractor.{extractFields, toJsonValues, saveValuesToFile}
-import scraper.UrlExtractor.getNLatestUrls
 
-object Computation{
+object Computation {
 
   def run(n: Long): Unit = {
     val urlArg: Req = url("http://bash.org.pl/text")
@@ -29,6 +29,7 @@ object Computation{
         println("An error has occurred: " + t.getMessage)
         Http.default.shutdown()
         System.exit(0)
-      }}
+      }
+    }
   }
 }
